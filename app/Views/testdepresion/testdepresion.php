@@ -34,7 +34,7 @@
 
                 res['testrealizados'].forEach(testrealizado => {
 
-                    tablaTestRealizada.row.add([cont,testrealizado.usuario,testrealizado.paciente,testrealizado.fecha_nacimiento,
+                    tablaTestRealizada.row.add([cont,testrealizado.usuario,testrealizado.paciente,calcularEdad(testrealizado.fecha_nacimiento),
                         testrealizado.detalle,testrealizado.puntuacion,testrealizado.sexo,testrealizado.provincia,testrealizado.ciudad,
                         "<div class='btn-group'><a onclick='detailTest("+testrealizado.id_testpaciente+")' class='btn btn-outline-primary'><i class='fas fa-info'></i></a></div> "
                     ]);
@@ -56,7 +56,18 @@
 
 
 
+    function calcularEdad(fecha) {
+        var hoy = new Date();
+        var cumpleanos = new Date(fecha);
+        var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+        var m = hoy.getMonth() - cumpleanos.getMonth();
 
+        if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+            edad--;
+        }
+
+        return edad;
+    }
     window.onload = loadTestRealizado;
 </script>
 

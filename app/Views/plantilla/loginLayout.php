@@ -19,20 +19,13 @@
 
 
 
-    <div id="layoutSidenav">
 
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluithed">
+                <div class="container">
 
                     <?= $this->renderSection('contenido') ?>
                     <!-- section from add the container -->
                 </div>
-            </main>
 
-        </div>
-
-    </div>
 
     <?= $this->renderSection('scripts') ?>
         <!-- section form add scripts -->

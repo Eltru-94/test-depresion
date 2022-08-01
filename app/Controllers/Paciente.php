@@ -10,7 +10,7 @@ class Paciente extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Pacientes'
+            'title' => 'Realizar test'
         ];
         return view('paciente/index', $data);
     }
@@ -19,6 +19,15 @@ class Paciente extends BaseController
     {
         $modelPaciente=new Pacientes();
         $query=$modelPaciente->selectPacientes();
+        return $this->getRespose([
+            'pacientes' => $query
+        ]);
+
+    }
+    public function allDataDetalles()
+    {
+        $modelPaciente=new Pacientes();
+        $query=$modelPaciente->selectPacientesDetalles();
         return $this->getRespose([
             'pacientes' => $query
         ]);
@@ -78,5 +87,13 @@ class Paciente extends BaseController
         ]);
     }
 
+
+    public function detalle()
+    {
+        $data = [
+            'title' => 'Pacientes'
+        ];
+        return view('paciente/detalles/index', $data);
+    }
 
 }

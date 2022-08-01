@@ -1,4 +1,4 @@
-# Compania Taxi Pugacho
+# App Test depresion
 # Codignaiter 4.1
 ## Setup
 
@@ -8,5 +8,5 @@ php spark serve
 
 php spark migrate
 
-php spark db:seed TestSeeder
+php spark db:seed Test
 

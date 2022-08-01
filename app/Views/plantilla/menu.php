@@ -27,7 +27,8 @@
                     </a>
                     <div id="cuatro" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/Paciente"><i class="fas fa-hospital-user"></i> &nbsp;Pacientes</a>
+                            <a class="nav-link" href="/Paciente"><i class="fas fa-plus-square"></i> &nbsp;Test</a>
+                            <a class="nav-link" href="/Paciente/detalle"><i class="fas fa-hospital-user"></i> &nbsp;Pacientes</a>
 
                         </nav>
                     </div>
@@ -56,7 +57,8 @@
                     </a>
                     <div id="cuatro" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/Paciente"><i class="fas fa-hospital-user"></i> &nbsp;Pacientes</a>
+                            <a class="nav-link" href="/Paciente"><i class="fas fa-plus-square"></i> &nbsp;Test</a>
+                            <a class="nav-link" href="/Paciente/detalle"><i class="fas fa-hospital-user"></i> &nbsp;Pacientes</a>
 
                         </nav>
                     </div>

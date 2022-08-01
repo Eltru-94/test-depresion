@@ -11,10 +11,9 @@
 
     </div>
     <div class="col-sm-8 mb-8 mb-sm-0">
-        <div class="card"> <div class="card-header py-3 centro">
-
+        <div class="card">
+            <div class="card-header">
                 <h4 class="m-0 font-weight-bold text-dark text-center"><?php echo $title; ?></h4>
-
             </div>
             <div class="card-body">
                 <form name="formLogin" id="formLogin">
@@ -29,14 +28,12 @@
                         <div class="col-sm-12 mb-12 mb-sm-0">
                             <label class="small mb-1">Contraseña</label>
                             <input type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Ingrese la contraseña">
-                            <span class="text-primary error-text contrasenia_error"></span>
+                            <span class="text-danger error-text contrasenia_error"></span>
                         </div>
                     </div>
-                    <div class="modal-footer">
-
-
+                    <hr>
+                    <div class="text-center">
                         <input type="submit" id="btnLogin" name="btnLogin" class="btn btn-dark" value="Iniciar sessión">
-                        <button type="button" class="btn btn-dark" onclick="location.href='<?php echo base_url() ?>'">Inicio</button>
 
                     </div>
 

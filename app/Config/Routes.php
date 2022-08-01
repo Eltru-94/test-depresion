@@ -74,6 +74,8 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->post('Paciente/store', 'Paciente::store');
     $routes->get('Paciente/update/(:num)', 'Paciente::pacienteUpdate/$1');
     $routes->post('Paciente/datoUpdate', 'Paciente::update');
+    $routes->get('Paciente/detalle','Paciente::detalle');
+    $routes->get('Paciente/allDataDetalle','Paciente::allDataDetalles');
     /** Test */
     $routes->get('Test/(:num)', 'TestPsicologia::index/$1');
     $routes->post('Test/store', 'TestPsicologia::store');

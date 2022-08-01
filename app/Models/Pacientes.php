@@ -32,6 +32,14 @@ class Pacientes extends Model
         return $query->getResultArray();
     }
 
+    public function selectPacientesDetalles()
+    {
+        $builder = $this->db->table('pacientes');
+        $builder->select('*');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
     public function selectId($id)
     {
         $builder = $this->db->table('pacientes');
