@@ -58,7 +58,8 @@
 
     function detailTest(id) {
         let url=`<?php echo base_url('TestDetalle/testDetalle') ?>`+'/'+id;
-        window.open(url, '_blank');
+        window.location.href = url;
+        //window.open('http://example.com', '_blank');
 
     }
 

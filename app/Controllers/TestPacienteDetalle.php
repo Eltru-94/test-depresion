@@ -32,7 +32,7 @@ class TestPacienteDetalle extends BaseController
         $dompdf->loadHtml(view('testdepresion/testdepresiondetalle/index', $datos));
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
-        $dompdf->stream("archivo_.pdf".$query1[0]['nombres']."", array("Attachment" => 0));
+        $dompdf->stream("archivo_.pdf".$query1[0]['nombres']."", array("Attachment" => 1));
         return view('testdepresion/testdepresiondetalle/index', $datos);
     }
     public function reportes()
