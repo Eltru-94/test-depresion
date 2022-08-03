@@ -37,6 +37,11 @@
                 <label><strong>Fecha creación :  </strong> <?php echo $paciente['created_at'];?></label>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label><strong>TIPO DE DEPRESIÓN :  </strong> <?php echo $testRealizado[0]['detalle'];?></label>
+            </div>
+        </div>
     </div>
 <hr>
     <div class="card-body">
