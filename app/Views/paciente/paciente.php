@@ -92,6 +92,9 @@
 
     $("#btnPaciente").click(function(e) {
         e.preventDefault();
+        var yearSelect = document.querySelector("#fecha_nacimiento");
+        let edad=calcularEdad($('#fecha_nacimiento').val())
+        if(edad>=65){
         clearErrors();
         let Url = edit === false ? '<?php echo base_url('Paciente/store') ?>' :
             '<?php echo base_url('Paciente/datoUpdate') ?>';
@@ -117,7 +120,17 @@
                     });
                 }
             }
-        });
+        });}
+        else{
+            Swal.fire({
+                title: "No se permiten realizar el test a pesonas menores de 65 años",
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar'
+            })
+        }
     })
 
     function clearErrors() {

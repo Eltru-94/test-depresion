@@ -2,7 +2,7 @@
 
     let tablaTestRealizada = $('#tablaTestRealizada').DataTable({
         "language": {
-            "lengthMenu": "Mostrar _MENU_ Usuarios",
+            "lengthMenu": "Mostrar _MENU_ Test realizados",
             "zeroRecords": "No se encontraron resultados",
             "info": "Mostrando registro de usuarios del _START_ al _END_ de un total de _TOTAL_",
             "infoEmpty": "Mostrando registro del 0 al 0 de un total de 0 registros",
@@ -27,15 +27,23 @@
             url: Url,
             dataType: 'json',
             success: function(res) {
-
+                console.log(res)
 
                 let cont = 1;
 
 
                 res['testrealizados'].forEach(testrealizado => {
+                    let mensaje="";
+                    if(testrealizado.detalle=="DEPRESIÓN ESTABLECIDA"){
+                        mensaje=`<span class="badge badge-pill bg-danger"><strong>` + testrealizado.detalle + `</strong></span>`
+                    }else if(testrealizado.detalle=="DEPRESIÓN LEVE"){
+                        mensaje=`<span class="badge badge-pill bg-warning"><strong>` + testrealizado.detalle + `</strong></span>`
+                    }else{
+                        mensaje=`<span class="badge badge-pill bg-success"><strong>` + testrealizado.detalle + `</strong></span>`
+                    }
 
                     tablaTestRealizada.row.add([cont,testrealizado.usuario,testrealizado.paciente,calcularEdad(testrealizado.fecha_nacimiento),
-                        testrealizado.detalle,testrealizado.puntuacion,testrealizado.sexo,testrealizado.provincia,testrealizado.ciudad,
+                        mensaje,testrealizado.puntuacion,testrealizado.sexo,testrealizado.provincia,testrealizado.ciudad,
                         "<div class='btn-group'><a onclick='detailTest("+testrealizado.id_testpaciente+")' class='btn btn-outline-primary'><i class='fas fa-info'></i></a></div> "
                     ]);
                     cont++;
@@ -49,8 +57,8 @@
 
 
     function detailTest(id) {
-        window.location.href = "<?php echo base_url('TestDetalle/testDetalle') ?>"+"/"+id;
-
+        let url=`<?php echo base_url('TestDetalle/testDetalle') ?>`+'/'+id;
+        window.open(url, '_blank');
 
     }
 

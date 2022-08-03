@@ -12,13 +12,27 @@ class TestPacienteDetalle extends BaseController
 {
     public function index($id)
     {
-        $modelTestPacienteDetalle=new TestPacienteDetalles();
+        /*$modelTestPacienteDetalle=new TestPacienteDetalles();
         $query=$modelTestPacienteDetalle->selectTestDepresionRealizadosDetail($id);
         $query1=$modelTestPacienteDetalle->selectTestDepresionRealizadosData($id);
         $datos = [
             'title' => 'Detalles test paciente :  '.$query1[0]['paciente'],
             'testRealizado'=>$query
+        ];*/
+        $modelTestPacienteDetalle=new TestPacienteDetalles();
+        $query=$modelTestPacienteDetalle->selectTestDepresionRealizadosDetail($id);
+        $query1=$modelTestPacienteDetalle->selectTestDepresionRealizadosData($id);
+        $datos = [
+            'title' => 'Detalles Test de Escala abreviada de depresión geriátrica de Yesavage',
+            'testRealizado'=>$query,
+            'paciente'=>$query1[0]
         ];
+
+        $dompdf = new \Dompdf\Dompdf();
+        $dompdf->loadHtml(view('testdepresion/testdepresiondetalle/index', $datos));
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $dompdf->stream("archivo_.pdf".$query1[0]['nombres']."", array("Attachment" => 0));
         return view('testdepresion/testdepresiondetalle/index', $datos);
     }
     public function reportes()

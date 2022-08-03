@@ -1,4 +1,4 @@
-<?= $this->extend('plantilla/layout')?>
+<?= $this->extend('plantilla/layoutPrint')?>
 <?= $this->section('titulo')?>
 <?php echo $title;?>
 <?= $this->endSection()?>
@@ -10,7 +10,4 @@
 <?= $this->endSection()?>
 
 
-<?= $this->section('scripts')?>
-
-<?= $this->endSection()?>
 

@@ -25,17 +25,21 @@ class TestPacienteDetalles extends Model
     public function selectTestDepresionRealizadosDetail($id)
     {
         $builder = $this->db->table('testpacientedetalles');
-        $builder->select('testpacientedetalles.contestacion,testpsicologia.test');
+        $builder->select('testpacientedetalles.contestacion,testpsicologia.test,CONCAT(users.nombre,users.apellido ) AS PROFESIONAL');
         $builder->join('testpsicologia', 'testpacientedetalles.id_test = testpsicologia.id_test');
-        $builder->where('  testpacientedetalles.id_testpaciente', $id);
+        $builder->join('testpacientes', 'testpacientedetalles.id_testpaciente = testpacientes.id_testpaciente');
+        $builder->join('users', 'testpacientes.id_user = users.id_user');
+        $builder->where(' testpacientedetalles.id_testpaciente', $id);
         $query = $builder->get();
         return $query->getResultArray();
+
+
     }
 
     public function selectTestDepresionRealizadosData($id)
     {
         $builder = $this->db->table('testpacientedetalles');
-        $builder->select('CONCAT( pacientes.nombres," ",pacientes.apellidos) AS paciente');
+        $builder->select('*');
         $builder->join('pacientes', 'pacientes.id_paciente = testpacientedetalles.id_testpaciente');
         $builder->where('testpacientedetalles.id_testpaciente', $id);
         $query = $builder->get();

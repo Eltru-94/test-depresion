@@ -2,7 +2,7 @@
 
     let tablaTest = $('#tablatest').DataTable({
         "language": {
-            "lengthMenu": "Mostrar _MENU_ Usuarios",
+            "lengthMenu": "Mostrar _MENU_ test realizados",
             "zeroRecords": "No se encontraron resultados",
             "info": "Mostrando registro de usuarios del _START_ al _END_ de un total de _TOTAL_",
             "infoEmpty": "Mostrando registro del 0 al 0 de un total de 0 registros",
